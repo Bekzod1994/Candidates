@@ -1,8 +1,8 @@
 package com.example.candidates.domain.usecases
 
-import com.example.candidates.data.local.LocalRepository
 import com.example.candidates.domain.model.Candidate
 import com.example.candidates.domain.model.toDomain
+import com.example.candidates.domain.repository.LocalRepository
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

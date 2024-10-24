@@ -1,11 +1,9 @@
 package com.example.candidates.domain.usecases
 
-import com.example.candidates.data.local.LocalRepository
-import com.example.candidates.data.local.entity.CandidateEntity
 import com.example.candidates.data.local.entity.toEntity
-import com.example.candidates.data.network.model.CandidateResponse
 import com.example.candidates.domain.model.DataResult
-import com.example.candidates.domain.repository.Repository
+import com.example.candidates.domain.repository.LocalRepository
+import com.example.candidates.domain.repository.RemoteRepository
 import com.haroldadmin.cnradapter.NetworkResponse
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.withContext
@@ -14,7 +12,7 @@ import javax.inject.Inject
 
 @ViewModelScoped
 class SyncCandidatesUseCase @Inject constructor(
-    private val repository: Repository,
+    private val repository: RemoteRepository,
     private val localRepository: LocalRepository,
     private val dispatcher: DispatchersProvider
 ) {

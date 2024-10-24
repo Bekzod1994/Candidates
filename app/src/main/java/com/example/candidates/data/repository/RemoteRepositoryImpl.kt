@@ -2,16 +2,13 @@ package com.example.candidates.data.repository
 
 import com.example.candidates.data.network.model.CandidateResponse
 import com.example.candidates.data.network.model.ErrorResponse
-import com.example.candidates.data.network.service.CandidateService
-import com.example.candidates.domain.repository.Repository
+import com.example.candidates.domain.repository.RemoteRepository
 import com.haroldadmin.cnradapter.NetworkResponse
-import okhttp3.Response
-import java.io.IOException
 import javax.inject.Inject
 
-class RepositoryImpl @Inject constructor(
+class RemoteRepositoryImpl @Inject constructor(
     // private val service: CandidateService
-) : Repository {
+) : RemoteRepository {
     override suspend fun getCandidates(): NetworkResponse<List<CandidateResponse>, ErrorResponse> {
         return NetworkResponse.Success(
             body = listOf(candidateResponse),

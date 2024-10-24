@@ -1,9 +1,9 @@
 package com.example.candidates.data.di
 
-import com.example.candidates.data.local.LocalRepository
-import com.example.candidates.data.local.entity.LocalRepositoryImpl
-import com.example.candidates.data.repository.RepositoryImpl
-import com.example.candidates.domain.repository.Repository
+import com.example.candidates.data.local.LocalRepositoryImpl
+import com.example.candidates.data.repository.RemoteRepositoryImpl
+import com.example.candidates.domain.repository.LocalRepository
+import com.example.candidates.domain.repository.RemoteRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 interface DataModule {
     @Binds
     @Singleton
-    fun bindRemoteRepository(repo: RepositoryImpl): Repository
+    fun bindRemoteRepository(repo: RemoteRepositoryImpl): RemoteRepository
     @Binds
     @Singleton
     fun bindLocalRepository(repo: LocalRepositoryImpl): LocalRepository

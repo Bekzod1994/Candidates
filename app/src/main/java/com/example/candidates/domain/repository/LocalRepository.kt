@@ -1,4 +1,4 @@
-package com.example.candidates.data.local
+package com.example.candidates.domain.repository
 
 import com.example.candidates.data.local.entity.CandidateEntity
 import kotlinx.coroutines.flow.Flow

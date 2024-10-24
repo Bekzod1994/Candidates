@@ -1,6 +1,7 @@
-package com.example.candidates.data.local.entity
+package com.example.candidates.data.local
 
-import com.example.candidates.data.local.LocalRepository
+import com.example.candidates.data.local.entity.CandidateEntity
+import com.example.candidates.domain.repository.LocalRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
