@@ -5,10 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.example.candidates.domain.model.Candidate
-import com.example.candidates.domain.model.DataResult
 import com.example.candidates.domain.usecases.GetCandidateUseCase
-import com.example.candidates.domain.usecases.GetCandidatesUseCase
-import com.example.candidates.domain.usecases.SyncCandidatesUseCase
 import com.example.candidates.presentation.CandidateDetails
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,7 +26,6 @@ data class CandidateUIState(
 class CandidateDetailsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val candidateUseCase: GetCandidateUseCase,
-    private val syncCandidatesUseCase: SyncCandidatesUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(CandidateUIState())
@@ -38,15 +34,6 @@ class CandidateDetailsViewModel @Inject constructor(
 
     init {
         getCandidate()
-    }
-
-    private fun sync() {
-        viewModelScope.launch {
-            when (val result = syncCandidatesUseCase()) {
-                is DataResult.Error -> _uiState.update { it.copy(errorMessage = result.data) }
-                is DataResult.Success -> {}
-            }
-        }
     }
 
     private fun getCandidate() {
