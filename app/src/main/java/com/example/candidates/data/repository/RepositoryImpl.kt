@@ -14,17 +14,18 @@ class RepositoryImpl @Inject constructor(
 ) : Repository {
     override suspend fun getCandidates(): NetworkResponse<List<CandidateResponse>, ErrorResponse> {
         return NetworkResponse.Success(
-            body = listOf(
-                CandidateResponse(
-                    id = 1,
-                    fistName = "Bekzod",
-                    lastName = "Qalandarov",
-                    phone = "90991933",
-                    age = "30",
-                    salary = "3500",
-                    stack = "Android"
-                )
-            ), response = retrofit2.Response.success("success")
+            body = listOf(candidateResponse),
+            response = retrofit2.Response.success(candidateResponse)
         )
     }
 }
+
+private val candidateResponse = CandidateResponse(
+    id = 1,
+    fistName = "Bekzod",
+    lastName = "Qalandarov",
+    phone = "90991933",
+    age = "30",
+    salary = "3500",
+    stack = "Android"
+)
